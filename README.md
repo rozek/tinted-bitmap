@@ -61,7 +61,7 @@ For Svelte it is recommended to import the package within a module context:
 <img style="vertical-align:middle" src={tintedImageURL} alt="tinted"/>
 ```
 
-You will find this example in a Svelte REPL at []() - feel free to play with it!
+You will find this example in a [Svelte REPL](https://svelte.dev/repl/2cee91ac75a74bc18f77e94f28e0c16d) - feel free to play with it!
 
 ## Usage as an ECMAscript Module ##
 
