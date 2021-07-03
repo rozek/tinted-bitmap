@@ -7,9 +7,11 @@
     expectInstanceOf,expectColor
   } from 'javascript-interface-library'
 
-  function tintedBitmap (
+/**** tintedBitmapAsURL ****/
+
+  export function tintedBitmapAsURL (
     Bitmap:HTMLImageElement, TintColor:string
-  ):HTMLImageElement {
+  ):string {
     expectInstanceOf('bitmap',Bitmap, HTMLImageElement,'HTML image element')
     expectColor ('tint color',TintColor)
 
@@ -23,14 +25,20 @@
     let Context = Canvas.getContext('2d') as CanvasRenderingContext2D
       Context.drawImage(Bitmap,0,0)
 
-      Context.globalCompositeOperation = 'destination-atop'
+      Context.globalCompositeOperation = 'source-in'
 
       Context.fillStyle = TintColor
       Context.fillRect(0,0, Bitmap.width,Bitmap.height)
-    let Result = document.createElement('img')
-      Result.src = Canvas.toDataURL('image/png')
-    return Result
+    return Canvas.toDataURL('image/png')
   }
 
-  export default tintedBitmap
+/**** tintedBitmap ****/
+
+  export function tintedBitmap (
+    Bitmap:HTMLImageElement, TintColor:string
+  ):HTMLImageElement {
+    let Result = document.createElement('img')
+      Result.src = tintedBitmapAsURL(Bitmap,TintColor)
+    return Result
+  }
 
