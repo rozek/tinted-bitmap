@@ -71,9 +71,17 @@ If you prefer ESMs, you will presumably also use a bundler (such as [rollup](htt
 <script>
   import { tintedBitmapAsURL } from 'tinted-bitmap'
 
-  let originalImage  = ...
-  let tintedImageURL = tintedBitmapAsURL(originalImage,'limegreen')
+  window.onload = function () {
+    let originalImage = document.getElementById('originalImage')
+    let tintedImage   = document.getElementById('tintedImage')
+
+    tintedImage.src = tintedBitmapAsURL(originalImage,'limegreen')
+  }
 </script>
+<body>
+  <img id="originalImage" style="vertical-align:middle" src="..."/>
+  <img id="tintedImage"   style="vertical-align:middle"/>
+</body>
 ```
 
 ## Usage as a CommonJS or AMD Module (or as a global Variable) ##
@@ -91,8 +99,7 @@ Let's assume that you already "required" or "imported" (or simply loaded) the mo
 </script>
 <body>
   <img id="originalImage" style="vertical-align:middle" src="..."/>
-  &nbsp; ➔ &nbsp;
-  <img id="tintedImage" style="vertical-align:middle"/>
+  <img id="tintedImage"   style="vertical-align:middle"/>
 </body>
 ```
 
