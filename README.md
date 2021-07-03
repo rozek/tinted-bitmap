@@ -25,7 +25,7 @@ or load the plain script file directly (together with its dependency, the [javas
 
 How to access the package depends on the type of module you prefer
 
-* ESM: `import tintedBitmap from 'tinted-bitmap'`
+* ESM: `import { tintedBitmap, tintedBitmapAsURL } from 'tinted-bitmap'`
 * CommonJS: `const tintedBitmap = require('tinted-bitmap')`
 * AMD: `require(['tinted-bitmap'], (tintedBitmap) => {...})`
 
