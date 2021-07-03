@@ -16,7 +16,6 @@ export default {
       globals:   { 'javascript-interface-library':'JIL' },
       noConflict:true,
       sourcemap: true,
-      exports:   'default',
       plugins: [terser({ format:{ comments:false, safari10:true } })],
     }
   ],
