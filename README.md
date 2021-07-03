@@ -90,6 +90,8 @@ Let's assume that you already "required" or "imported" (or simply loaded) the mo
 
 ```
 <script>
+  const { tintedBitmapAsURL } = tintedBitmap
+
   window.onload = function () {
     let originalImage = document.getElementById('originalImage')
     let tintedImage   = document.getElementById('tintedImage')
@@ -102,8 +104,6 @@ Let's assume that you already "required" or "imported" (or simply loaded) the mo
   <img id="tintedImage"   style="vertical-align:middle"/>
 </body>
 ```
-
-Nota bene: if you want to use `tinted-bitmap` from a global variable, don't forget to prefix its exports with the `tintedBitmap` namespace prefix (i.e. `tintedBitmap.tintedBitmap` or `tintedBitmap.tintedBitmapAsURL`)
 
 ## Example ##
 
