@@ -10,7 +10,7 @@
     "import": "./dist/tinted-bitmap.esm.js"
   },
   "types": "./dist/tinted-bitmap.d.ts",
-  "svelte": "./src/tinted-bitmap.svelte",
+  "svelte": "./dist/tinted-bitmap.esm.js",
   "scripts": {
     "build": "rimraf dist && tsc && rollup -c rollup.config.js && mv src/*.d.ts dist && mv src/*.js dist/tinted-bitmap.esm.js",
     "test": "echo \"Error: no test specified\" && exit 1"
