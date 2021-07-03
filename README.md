@@ -65,7 +65,7 @@ You will find this example in a [Svelte REPL](https://svelte.dev/repl/2cee91ac75
 
 ## Usage as an ECMAscript Module ##
 
-If you prefer ESMs, you will presumably also use a bundler (such as [rollup](https://rollupjs.org/guide/en/) or [webpack](https://webpack.js.org/)) to benefit from tree-shaking (`tinted-bitmap` is fully tree-shakable). In this case, just import what you need and use it - your bundler will do the rest:
+If you prefer ESMs, you will presumably also use a bundler (such as [rollup](https://rollupjs.org/guide/en/) or [webpack](https://webpack.js.org/)) to resolve any transitive dependencies and perform some "tree-shaking" to eliminate unnecessary parts (`tinted-bitmap` is fully tree-shakable). In this case, just import what you need and use it - your bundler will do the rest:
 
 ```
 <script>
