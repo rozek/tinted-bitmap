@@ -2,7 +2,8 @@
 //        tinted-bitmap - creates a tinted copy of a given HTML image         //
 //----------------------------------------------------------------------------//
 import { throwError, expectInstanceOf, expectColor } from 'javascript-interface-library';
-function tintedBitmap(Bitmap, TintColor) {
+/**** tintedBitmapAsURL ****/
+export function tintedBitmapAsURL(Bitmap, TintColor) {
     expectInstanceOf('bitmap', Bitmap, HTMLImageElement, 'HTML image element');
     expectColor('tint color', TintColor);
     if (!Bitmap.complete)
@@ -12,11 +13,14 @@ function tintedBitmap(Bitmap, TintColor) {
     Canvas.height = Bitmap.height;
     var Context = Canvas.getContext('2d');
     Context.drawImage(Bitmap, 0, 0);
-    Context.globalCompositeOperation = 'destination-atop';
+    Context.globalCompositeOperation = 'source-in';
     Context.fillStyle = TintColor;
     Context.fillRect(0, 0, Bitmap.width, Bitmap.height);
+    return Canvas.toDataURL('image/png');
+}
+/**** tintedBitmap ****/
+export function tintedBitmap(Bitmap, TintColor) {
     var Result = document.createElement('img');
-    Result.src = Canvas.toDataURL('image/png');
+    Result.src = tintedBitmapAsURL(Bitmap, TintColor);
     return Result;
 }
-export default tintedBitmap;
