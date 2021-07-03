@@ -79,10 +79,20 @@ You will find this example in a [Svelte REPL](https://svelte.dev/repl/2cee91ac75
 Let's assume that you already "required" or "imported" (or simply loaded) the module according to your local environment. In that case, you may use it as follows:
 
 ```
-const tintedBitmapAsURL = tintedBitmap.tintedBitmapAsURL
-  
-let originalImage  = ...
-let tintedImageURL = tintedBitmapAsURL(originalImage,'limegreen')
+<script>
+  const tintedBitmapAsURL = tintedBitmap.tintedBitmapAsURL
+  document.addEventListener('DOMContentLoaded',() => {
+    let originalImage = document.getElementById('originalImage')
+    let tintedImage   = document.getElementById('tintedImage')
+
+    tintedImage.src = tintedBitmap.tintedBitmapAsURL(originalImage,'limegreen')
+  })
+</script>
+<body>
+  <img id="originalImage" style="vertical-align:middle" src="..."/>
+  &nbsp; ➔ &nbsp;
+  <img id="tintedImage" style="vertical-align:middle"/>
+</body>
 ```
 
 ## Example ##
