@@ -85,6 +85,12 @@ let originalImage  = ...
 let tintedImageURL = tintedBitmapAsURL(originalImage,'limegreen')
 ```
 
+## Example ##
+
+An example is available on the Svelte REPL - feel free to play with it!
+
+* [tinted-bitmap](https://svelte.dev/repl/2cee91ac75a74bc18f77e94f28e0c16d)
+
 ## Background Information ##
 
 Sometimes it is necessary to draw a given (often b/w) raster image in a different color. `tinted-bitmap` performs the necessary "tinting" of such a bitmap and may construct either the data URL for the result (which is often preferred as it may be directly assigned to the `src` attribute of a given HTML image element) or the result itself (as an instance of `HTMLImageElement`)
