@@ -99,8 +99,8 @@ Sometimes it is necessary to draw a given (often b/w) raster image in a differen
 
 This package offers the following named JavaScript exports (function signatures are given with TypeScript type annotations, JavaScript programmers may just ignore them):
 
-* **`tintedBitmap (Bitmap:HTMLImageElement, TintColor:string):HTMLImageElement`** - `tintedBitmap` takes a given HTML image element "`Bitmap`" (which must be `complete`, i.e. fully loaded), uses its alpha channel to create another image in the given `TintColor` (which must be a valid CSS color specification) and returns that image as an `HTMLImageElement`
-* **`tintedBitmapAsURL (Bitmap:HTMLImageElement, TintColor:string):string`** - `tintedBitmapAsURL` takes a given HTML image element "`Bitmap`" (which must be `complete`, i.e. fully loaded) and uses its alpha channel to create another image in the given `TintColor` (which must be a valid CSS color specification). The contents of that bitmap are returned as a data URL
+* **`tintedBitmap (Bitmap:HTMLImageElement, TintColor:string):HTMLImageElement`** - takes a given HTML image element "`Bitmap`" (which must be `complete`, i.e. fully loaded), uses its alpha channel to create another image in the given `TintColor` (which must be a valid CSS color specification) and returns that image as an `HTMLImageElement`
+* **`tintedBitmapAsURL (Bitmap:HTMLImageElement, TintColor:string):string`** - takes a given HTML image element "`Bitmap`" (which must be `complete`, i.e. fully loaded) and uses its alpha channel to create another image in the given `TintColor` (which must be a valid CSS color specification). The contents of that bitmap are returned as a data URL
 
 ## Build Instructions ##
 
