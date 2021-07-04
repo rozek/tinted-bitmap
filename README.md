@@ -65,13 +65,23 @@ You will find this example in a [Svelte REPL](https://svelte.dev/repl/2cee91ac75
 
 ## Usage as an ECMAscript Module ##
 
+If you prefer ESMs, you will presumably also use a bundler (such as [rollup](https://rollupjs.org/guide/en/) or [webpack](https://webpack.js.org/)) to resolve any transitive dependencies and perform some "tree-shaking" to eliminate unnecessary parts (`tinted-bitmap` is fully tree-shakable). In this case, just import what you need and use it - your bundler will do the rest:
+
 ```
 <script>
   import { tintedBitmapAsURL } from 'tinted-bitmap'
 
-  let originalImage  = ...
-  let tintedImageURL = tintedBitmapAsURL(originalImage,'limegreen')
+  window.onload = function () {
+    let originalImage = document.getElementById('originalImage')
+    let tintedImage   = document.getElementById('tintedImage')
+
+    tintedImage.src = tintedBitmapAsURL(originalImage,'limegreen')
+  }
 </script>
+<body>
+  <img id="originalImage" style="vertical-align:middle" src="..."/>
+  <img id="tintedImage"   style="vertical-align:middle"/>
+</body>
 ```
 
 ## Usage as a CommonJS or AMD Module (or as a global Variable) ##
@@ -79,10 +89,20 @@ You will find this example in a [Svelte REPL](https://svelte.dev/repl/2cee91ac75
 Let's assume that you already "required" or "imported" (or simply loaded) the module according to your local environment. In that case, you may use it as follows:
 
 ```
-const tintedBitmapAsURL = tintedBitmap.tintedBitmapAsURL
-  
-let originalImage  = ...
-let tintedImageURL = tintedBitmapAsURL(originalImage,'limegreen')
+<script>
+  const { tintedBitmapAsURL } = tintedBitmap
+
+  window.onload = function () {
+    let originalImage = document.getElementById('originalImage')
+    let tintedImage   = document.getElementById('tintedImage')
+
+    tintedImage.src = tintedBitmapAsURL(originalImage,'limegreen')
+  }
+</script>
+<body>
+  <img id="originalImage" style="vertical-align:middle" src="..."/>
+  <img id="tintedImage"   style="vertical-align:middle"/>
+</body>
 ```
 
 ## Example ##
@@ -99,8 +119,8 @@ Sometimes it is necessary to draw a given (often b/w) raster image in a differen
 
 This package offers the following named JavaScript exports (function signatures are given with TypeScript type annotations, JavaScript programmers may just ignore them):
 
-* **`tintedBitmap (Bitmap:HTMLImageElement, TintColor:string):HTMLImageElement`** - `tintedBitmap` takes a given HTML image element "`Bitmap`" (which must be `complete`, i.e. fully loaded), uses its alpha channel to create another image in the given `TintColor` (which must be a valid CSS color specification) and returns that image as an `HTMLImageElement`
-* **`tintedBitmapAsURL (Bitmap:HTMLImageElement, TintColor:string):string`** - `tintedBitmapAsURL` takes a given HTML image element "`Bitmap`" (which must be `complete`, i.e. fully loaded) and uses its alpha channel to create another image in the given `TintColor` (which must be a valid CSS color specification). The contents of that bitmap are returned as a data URL
+* **`tintedBitmap (Bitmap:HTMLImageElement, TintColor:string):HTMLImageElement`** <br> `tintedBitmap` takes a given HTML image element "`Bitmap`" (which must be `complete`, i.e. fully loaded), uses its alpha channel to create another image in the given `TintColor` (which must be a valid CSS color specification) and returns that image as an `HTMLImageElement`
+* **`tintedBitmapAsURL (Bitmap:HTMLImageElement, TintColor:string):string`** <br> `tintedBitmapAsURL` takes a given HTML image element "`Bitmap`" (which must be `complete`, i.e. fully loaded) and uses its alpha channel to create another image in the given `TintColor` (which must be a valid CSS color specification). The contents of that bitmap are returned as a data URL
 
 ## Build Instructions ##
 
