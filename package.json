@@ -4,15 +4,20 @@
   "description": "creates a tinted copy of a given HTML image",
   "type": "module",
   "main": "./dist/tinted-bitmap.js",
+  "browser": "./dist/tinted-bitmap.bundled.js",
   "module": "./dist/tinted-bitmap.esm.js",
-  "exports": {
-    "require": "./dist/tinted-bitmap.js",
-    "import": "./dist/tinted-bitmap.esm.js"
-  },
-  "types": "./dist/tinted-bitmap.d.ts",
   "svelte": "./dist/tinted-bitmap.esm.js",
+  "types": "./dist/tinted-bitmap.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/tinted-bitmap.js",
+      "import": "./dist/tinted-bitmap.esm.js"
+    },
+    "./package.json":"./package.json"
+  },
   "scripts": {
-    "build": "rimraf dist && tsc && rollup -c rollup.config.js && mv src/*.d.ts dist && mv src/*.js dist/tinted-bitmap.esm.js",
+    "build": "rimraf dist && rollup -c rollup.config.js && rollup -c rollup-bundling.config.js && tsc && mv src/*.d.ts dist && rm src/*.js*",
+    "agadoo":"agadoo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -34,6 +39,7 @@
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@rollup/plugin-typescript": "^8.2.1",
+    "agadoo": "^2.0.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.52.7",
     "rollup-plugin-terser": "^7.0.2",
