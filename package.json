@@ -3,7 +3,6 @@
   "version": "0.1.3",
   "description": "creates a tinted copy of a given HTML image",
   "type": "module",
-  "main": "./dist/tinted-bitmap.js",
   "browser": "./dist/tinted-bitmap.bundled.js",
   "module": "./dist/tinted-bitmap.esm.js",
   "svelte": "./dist/tinted-bitmap.esm.js",
