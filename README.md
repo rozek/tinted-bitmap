@@ -14,10 +14,9 @@ You may either install the package into your build environment using [NPM](https
 npm install tinted-bitmap
 ```
 
-or load the plain script file directly (together with its dependency, the [javascript-interface-library](https://github.com/rozek/javascript-interface-library))
+or load the plain script file directly (Browsers automatically get the bundled version, thus, the module's dependency [javascript-interface-library](https://github.com/rozek/javascript-interface-library) does not have to be loaded separately)
 
 ```
-<script src="https://unpkg.com/javascript-interface-library"></script>
 <script src="https://unpkg.com/tinted-bitmap"></script>
 ```
 
