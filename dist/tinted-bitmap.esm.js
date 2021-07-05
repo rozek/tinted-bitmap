@@ -1,9 +1,8 @@
+import { expectInstanceOf, expectColor, throwError } from 'javascript-interface-library';
+
 //----------------------------------------------------------------------------//
-//        tinted-bitmap - creates a tinted copy of a given HTML image         //
-//----------------------------------------------------------------------------//
-import { throwError, expectInstanceOf, expectColor } from 'javascript-interface-library';
 /**** tintedBitmapAsURL ****/
-export function tintedBitmapAsURL(Bitmap, TintColor) {
+function tintedBitmapAsURL(Bitmap, TintColor) {
     expectInstanceOf('bitmap', Bitmap, HTMLImageElement, 'HTML image element');
     expectColor('tint color', TintColor);
     if (!Bitmap.complete)
@@ -19,8 +18,11 @@ export function tintedBitmapAsURL(Bitmap, TintColor) {
     return Canvas.toDataURL('image/png');
 }
 /**** tintedBitmap ****/
-export function tintedBitmap(Bitmap, TintColor) {
+function tintedBitmap(Bitmap, TintColor) {
     var Result = document.createElement('img');
     Result.src = tintedBitmapAsURL(Bitmap, TintColor);
     return Result;
 }
+
+export { tintedBitmap, tintedBitmapAsURL };
+//# sourceMappingURL=tinted-bitmap.esm.js.map
