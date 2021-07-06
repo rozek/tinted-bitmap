@@ -24,7 +24,7 @@ or load the plain script file directly (Browsers automatically get the bundled v
 
 How to access the package depends on the type of module you prefer
 
-* ESM: `import { tintedBitmap, tintedBitmapAsURL } from 'tinted-bitmap'`
+* ESM (or Svelte): `import { tintedBitmap, tintedBitmapAsURL } from 'tinted-bitmap'`
 * CommonJS: `const tintedBitmap = require('tinted-bitmap')`
 * AMD: `require(['tinted-bitmap'], (tintedBitmap) => {...})`
 
