@@ -6,7 +6,7 @@ creates a tinted copy of a given HTML Image
 
 ## Installation ##
 
-`tinted-bitmap` may be used as an ESM, CommonJS or AMD module or from a global variable.
+`tinted-bitmap` may be used as an ECMAScript module (ESM), a CommonJS or AMD module or from a global variable.
 
 You may either install the package into your build environment using [NPM](https://docs.npmjs.com/) with the command
 
@@ -29,6 +29,8 @@ How to access the package depends on the type of module you prefer
 * AMD: `require(['tinted-bitmap'], (tintedBitmap) => {...})`
 
 Alternatively, you may access the global variable `tintedBitmap` directly.
+
+Note for ECMAScript module users: all module functions and values are exported individually, thus allowing your bundler to perform some "tree-shaking" in order to include actually used functions or values (together with their dependencies) only.
 
 ## Usage within Svelte ##
 
@@ -62,7 +64,7 @@ For Svelte it is recommended to import the package within a module context:
 
 You will find this example in a [Svelte REPL](https://svelte.dev/repl/2cee91ac75a74bc18f77e94f28e0c16d) - feel free to play with it!
 
-## Usage as an ECMAscript Module ##
+## Usage as ECMAscript Module ##
 
 If you prefer ESMs, you will presumably also use a bundler (such as [rollup](https://rollupjs.org/guide/en/) or [webpack](https://webpack.js.org/)) to resolve any transitive dependencies and perform some "tree-shaking" to eliminate unnecessary parts (`tinted-bitmap` is fully tree-shakable). In this case, just import what you need and use it - your bundler will do the rest:
 
@@ -83,7 +85,7 @@ If you prefer ESMs, you will presumably also use a bundler (such as [rollup](htt
 </body>
 ```
 
-## Usage as a CommonJS or AMD Module (or as a global Variable) ##
+## Usage as CommonJS or AMD Module (or as a global Variable) ##
 
 Let's assume that you already "required" or "imported" (or simply loaded) the module according to your local environment. In that case, you may use it as follows:
 
