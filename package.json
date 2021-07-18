@@ -45,6 +45,6 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "javascript-interface-library": "file:../javascript-interface-library"
+    "javascript-interface-library": "^0.1.13"
   }
 }
