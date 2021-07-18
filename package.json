@@ -1,6 +1,6 @@
 {
   "name": "tinted-bitmap",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "creates a tinted copy of a given HTML image",
   "type": "module",
   "browser": "./dist/tinted-bitmap.bundled.js",
