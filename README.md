@@ -18,7 +18,7 @@ npm install tinted-bitmap
 
 or load the plain script file directly (Browsers automatically get the bundled version, thus, the module's dependency [javascript-interface-library](https://github.com/rozek/javascript-interface-library) does not have to be loaded separately)
 
-```
+```html
 <script src="https://unpkg.com/tinted-bitmap"></script>
 ```
 
@@ -38,7 +38,7 @@ Note for ECMAScript module users: all module functions and values are exported i
 
 For Svelte it is recommended to import the package within a module context:
 
-```
+```html
 <script context="module">
   import { tintedBitmapAsURL } from 'tinted-bitmap'
 </script>
@@ -70,7 +70,7 @@ You will find this example in a [Svelte REPL](https://svelte.dev/repl/2cee91ac75
 
 If you prefer ESMs, you will presumably also use a bundler (such as [rollup](https://rollupjs.org/guide/en/) or [webpack](https://webpack.js.org/)) to resolve any transitive dependencies and perform some "tree-shaking" to eliminate unnecessary parts (`tinted-bitmap` is fully tree-shakable). In this case, just import what you need and use it - your bundler will do the rest:
 
-```
+```html
 <script>
   import { tintedBitmapAsURL } from 'tinted-bitmap'
 
@@ -91,7 +91,7 @@ If you prefer ESMs, you will presumably also use a bundler (such as [rollup](htt
 
 Let's assume that you already "required" or "imported" (or simply loaded) the module according to your local environment. In that case, you may use it as follows:
 
-```
+```html
 <script>
   const { tintedBitmapAsURL } = tintedBitmap
 
